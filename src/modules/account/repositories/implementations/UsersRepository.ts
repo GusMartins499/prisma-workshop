@@ -1,4 +1,5 @@
 import { prismaClient } from "../../../../prisma";
+import { Post } from "../../../topics/model/Post";
 import { User } from "../../model/User";
 import { ICreateUserDTO, IUsersRepository } from "../IUsersRepository";
 
@@ -45,6 +46,29 @@ class UsersRepository implements IUsersRepository {
     })
 
     return user;
+  }
+
+  async findById(id: string): Promise<User> {
+    const user = await this.prismaUsers.findUnique({
+      where: {
+        id
+      }
+    })
+
+    return user;
+  }
+
+  async unpublishPost(id: string): Promise<Post[]> {
+    const posts = await this.prismaUsers.findUnique({
+      where: { id },
+    })
+    .posts({
+      where: {
+        published: false
+      }
+    })
+    
+    return posts
   }
 }
 
