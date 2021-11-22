@@ -12,4 +12,4 @@ const main = async () => {
 main()
 .finally(async () => {
   await prismaClient.$disconnect();
-})
+});
