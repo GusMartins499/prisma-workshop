@@ -1,5 +1,5 @@
 import "dotenv/config";
-// import { prismaClient } from "./prisma";
+import { prismaClient } from "./prisma";
 
 const main = async () => {
   /**
@@ -9,4 +9,7 @@ const main = async () => {
    */
 }
 
-main();
+main()
+.finally(async () => {
+  await prismaClient.$disconnect();
+})
