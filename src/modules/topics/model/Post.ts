@@ -4,10 +4,10 @@ import { User } from "../../account/model/User";
 class Post {
   id?: string;
   title: string;
-  content?: string;
+  content: string;
   published: boolean;
   user?: User;
-  userId?: String
+  userId?: String;
 
   constructor() {
     if (!this.id) {

@@ -8,7 +8,7 @@ export interface ICreateUserDTO {
 }
 
 export interface IUsersRepository {
-  list(): Promise<User[]>;
   create({ name, email }: ICreateUserDTO): void;
+  list(): Promise<User[]>;
   findByEmail(email: string): Promise<User>;
 }
