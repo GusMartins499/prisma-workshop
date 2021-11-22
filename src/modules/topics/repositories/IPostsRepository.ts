@@ -1,4 +1,3 @@
-import { User } from "../../account/model/User";
 import { Post } from "../model/Post";
 
 export interface ICreatePostDTO {
@@ -10,4 +9,6 @@ export interface ICreatePostDTO {
 export interface IPostsRepository {
   create({ title, content, userEmail }): Promise<void>;
   list(): Promise<Post[]>;
+  findById(id: string): Promise<Post>;
+  incrementView(id: string): Promise<void>;
 }

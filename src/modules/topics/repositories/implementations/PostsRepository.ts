@@ -33,6 +33,29 @@ class PostsRepository implements IPostsRepository {
 
     return posts;
   }
+
+  async findById(id: string): Promise<Post> {
+    const post = await this.prismaPosts.findUnique({
+      where: {
+        id
+      }
+    })
+
+    return post;
+  }
+
+  async incrementView(id: string): Promise<void> {
+    await this.prismaPosts.update({
+      where: {
+        id
+      },
+      data: {
+        viewCount: {
+          increment: 1
+        }
+      }
+    })
+  }
 }
 
 export { PostsRepository }
