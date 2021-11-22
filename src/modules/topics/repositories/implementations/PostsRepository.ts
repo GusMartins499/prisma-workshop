@@ -56,6 +56,17 @@ class PostsRepository implements IPostsRepository {
       }
     })
   }
+
+  async publishPost(id: string): Promise<void> {
+    await this.prismaPosts.update({
+      where: {
+        id
+      },
+      data: {
+        published: true
+      }
+    })
+  }
 }
 
 export { PostsRepository }

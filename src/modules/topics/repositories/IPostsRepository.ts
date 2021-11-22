@@ -2,8 +2,8 @@ import { Post } from "../model/Post";
 
 export interface ICreatePostDTO {
   title: string;
-  content?: string;
-  userEmail?: string;
+  content: string;
+  userEmail: string;
 }
 
 export interface IPostsRepository {
@@ -11,4 +11,5 @@ export interface IPostsRepository {
   list(): Promise<Post[]>;
   findById(id: string): Promise<Post>;
   incrementView(id: string): Promise<void>;
+  publishPost(id: string): Promise<void>;
 }
