@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createPostController } from "../modules/topics/useCases/createPost";
 import { incrementViewController } from "../modules/topics/useCases/incrementView";
 import { listPostController } from "../modules/topics/useCases/listPost";
+import { listPostByIdController } from "../modules/topics/useCases/listPostById";
 import { publishPostController } from "../modules/topics/useCases/publishPost";
 
 const postsRoutes = Router();
@@ -20,6 +21,10 @@ postsRoutes.patch("/:id/views", (request, response) => {
 
 postsRoutes.patch("/:id/publish", (request, response) => {
   return publishPostController.handle(request, response);
+});
+
+postsRoutes.get("/:id", (request, response) => {
+  return listPostByIdController.handle(request, response);
 });
 
 export { postsRoutes }

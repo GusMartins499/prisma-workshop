@@ -40,7 +40,7 @@ class PostsRepository implements IPostsRepository {
         id
       }
     })
-
+    
     return post;
   }
 
