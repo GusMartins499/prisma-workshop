@@ -11,4 +11,5 @@ export interface IUsersRepository {
   create({ name, email }: ICreateUserDTO): void;
   list(): Promise<User[]>;
   findByEmail(email: string): Promise<User>;
+  //unpublishPost(id: string): Promise<Post>;
 }

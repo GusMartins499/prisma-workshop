@@ -20,10 +20,21 @@ class UsersRepository implements IUsersRepository {
 
   async create({ name, email, posts }: ICreateUserDTO): Promise<void> {
     const user = new User();
-    Object.assign(user, {name, email, posts});
-    await this.prismaUsers.create({
-      data: user
-    })
+    let data;
+    Object.assign(user, { name, email });
+    if (posts) {
+      data = {
+        ...user,
+        posts: {
+          create: {
+            ...posts
+          }
+        }
+      }
+      await this.prismaUsers.create({ data })
+    } else {
+      await this.prismaUsers.create({ data: user })
+    }
   }
 
   async findByEmail(email: string): Promise<User> {
