@@ -1,12 +1,12 @@
 import "dotenv/config";
-// import { prismaClient } from "./prisma";
+import express from 'express';
 
-const main = async () => {
-  /**
-   * Write all queries here
-   * const user = await prismaClient.user.findMany();
-   * console.log(user)
-   */
-}
+import { usersRoutes } from "./routes/users.routes";
 
-main();
+const app = express();
+
+app.use(express.json());
+
+app.use("/users", usersRoutes);
+
+app.listen(3333, () => console.log("🚀 Server running"))
