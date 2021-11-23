@@ -1,3 +1,4 @@
+import AppError from "../../../../error/AppError";
 import { Post } from "../../../topics/model/Post";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -13,8 +14,8 @@ class CreateUserUseCase {
   execute({ name, email, posts }: IRequest): void {
     const userAlreadyExists = this.usersRepository.findByEmail(email);
     
-    if(!userAlreadyExists) {
-      throw new Error("User already exists");
+    if(userAlreadyExists) {
+      throw new AppError("User already exists");
     }
 
     this.usersRepository.create({ name, email, posts });

@@ -1,3 +1,4 @@
+import AppError from "../../../../error/AppError";
 import { IPostsRepository } from "../../repositories/IPostsRepository";
 
 interface IRequest {
@@ -10,7 +11,7 @@ class IncrementViewUseCase {
     const postAlreadyExists = this.postsRepository.findById(id);
 
     if(!postAlreadyExists) {
-      throw new Error("Post does not exist");
+      throw new AppError("Post does not exist");
     }
 
     this.postsRepository.incrementView(id);
