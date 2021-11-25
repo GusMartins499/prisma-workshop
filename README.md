@@ -24,4 +24,4 @@
 - If you just write queries: `git checkout master` and write your own queries in `server.ts`
 
 ## 🔥 Import endpoints
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=restapi-prisma-workshop&uri=ttps%3A%2F%2Fraw.githubusercontent.com%2FGusMartins499%2Fprisma-workshop%2Frest-api%2FInsomnia_2021-11-22.json)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=workshop-prisma&uri=https%3A%2F%2Fraw.githubusercontent.com%2FGusMartins499%2Fprisma-workshop%2Frest-api%2FInsomnia_2021-11-22.json)
